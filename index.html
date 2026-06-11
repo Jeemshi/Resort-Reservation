@@ -2,677 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>WildNest Resort & Retreat — Where Adventure Meets Luxury</title>
-    <meta name="description" content="Tucked into the ancient highland forests of Benguet, WildNest is where your appetite for the wild meets comfort that doesn't compromise.">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — WildNest Resort</title>
+    <!-- External Dependencies: FontAwesome for Icons & Your Style.css File -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --jungle: #1B3A2D;
-            --jungle-dark: #0F2419;
-            --jungle-mid: #2C5F44;
-            --canopy: #3D7A5C;
-            --ochre: #C8873A;
-            --ochre-light: #E8A84E;
-            --ember: #B84C2A;
-            --stone: #F0EBE1;
-            --stone-dark: #D4CBBB;
-            --mist: #E8F0EC;
-            --white-soft: #FEFCF5;
-            --text-dark: #1F2A24;
-            --text-mid: #4A5B4E;
-            --text-light: #7C8B7E;
-            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
-            --radius-card: 1.75rem;
-            --radius-lg: 1.25rem;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--white-soft);
-            color: var(--text-dark);
-            line-height: 1.5;
-        }
-
-        h1, h2, h3, h4, .display-title, .card-title, .hero-title, .section-title {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* --- STICKY NAVIGATION BAR --- */
-        .site-header {
-            background: rgba(15, 36, 25, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            border-bottom: 1px solid rgba(255, 255, 240, 0.1);
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .navbar-brand-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-        .navbar-logo-icon {
-            font-size: 1.8rem;
-            color: var(--ochre-light);
-        }
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-        .logo-text span { color: var(--ochre-light); }
-        .logo-tagline {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 500;
-            margin-top: 0.1rem;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            list-style: none;
-        }
-        .nav-links a {
-            color: #f0ede8;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--ochre-light); }
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .btn-nav-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.3rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .btn-nav-outline {
-            border: 1.5px solid var(--canopy);
-            color: #f0ede8;
-        }
-        .btn-nav-outline:hover {
-            background: rgba(61, 122, 92, 0.2);
-            color: white;
-        }
-        .btn-nav-primary {
-            background: var(--ochre);
-            color: #1F2A24;
-        }
-        .btn-nav-primary:hover {
-            background: var(--ochre-light);
-            transform: translateY(-1px);
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        .hamburger span {
-            width: 25px;
-            height: 2px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            position: relative;
-            background: linear-gradient(115deg, #0a1410 0%, #1B3A2D 100%);
-            overflow: hidden;
-            padding: 6rem 0 7rem;
-        }
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-        .hero-overlay {
-            background: radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.15) 0%, rgba(15,36,25,0.6) 100%);
-            position: absolute;
-            inset: 0;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .hero-kicker {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .hero-kicker-line {
-            width: 48px;
-            height: 2px;
-            background: var(--ochre-light);
-        }
-        .eyebrow {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-            color: var(--ochre);
-        }
-        .bg-jungle .eyebrow, .hero .eyebrow { color: var(--ochre-light); }
-        .hero-title {
-            font-size: clamp(2.8rem, 8vw, 5rem);
-            font-weight: 800;
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-        .hero-title span {
-            color: var(--ochre-light);
-            border-bottom: 2px solid rgba(232, 168, 78, 0.4);
-        }
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: rgba(255,255,235,0.85);
-            max-width: 560px;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 3.5rem;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.7rem 1.6rem;
-            border-radius: 60px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            font-size: 0.95rem;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: var(--ochre);
-            color: #1F2A24;
-        }
-        .btn-primary:hover {
-            background: var(--ochre-light);
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            background: rgba(255,255,245,0.12);
-            backdrop-filter: blur(4px);
-            color: white;
-            border: 1px solid rgba(232,168,78,0.5);
-        }
-        .btn-secondary:hover {
-            background: rgba(255,255,245,0.2);
-            transform: translateY(-2px);
-        }
-        .btn-dark {
-            background: var(--jungle);
-            color: white;
-        }
-        .btn-dark:hover {
-            background: var(--jungle-mid);
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid var(--canopy);
-            color: var(--canopy);
-        }
-        .btn-outline:hover {
-            background: var(--canopy);
-            color: white;
-        }
-        .btn-lg { padding: 0.9rem 2rem; font-size: 1rem; }
-        
-        .hero-stats {
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .hero-stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            font-family: 'Playfair Display', serif;
-            color: white;
-        }
-        .hero-stat-label { font-size: 0.75rem; color: #cbcfc3; letter-spacing: 0.5px; }
-
-        /* --- CONTINUOUS INFOMARQUEE STRIP --- */
-        .adventure-strip {
-            background: var(--jungle-dark);
-            overflow: hidden;
-            white-space: nowrap;
-            padding: 1.2rem 0;
-            border-block: 1px solid rgba(232,168,78,0.2);
-        }
-        .strip-track {
-            display: inline-flex;
-            animation: scrollStrip 28s linear infinite;
-            gap: 3rem;
-        }
-        .strip-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: #e7dfcf;
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .strip-item i { color: var(--ochre-light); }
-        .strip-dot {
-            width: 5px;
-            height: 5px;
-            background: var(--ochre);
-            border-radius: 50%;
-            margin-left: 1rem;
-        }
-        @keyframes scrollStrip {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* --- BOOKING BAR CONTAINER --- */
-        .booking-bar-wrapper {
-            background: var(--stone);
-            padding: 3.5rem 0;
-        }
-        .booking-bar {
-            background: white;
-            border-radius: 80px;
-            box-shadow: var(--shadow-md);
-            padding: 1.2rem 2.5rem;
-        }
-        .booking-bar-inner {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-        .booking-field {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-mid);
-            flex: 1;
-            min-width: 160px;
-        }
-        .booking-field label {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .booking-field label i { color: var(--canopy); }
-        .booking-field input, .booking-field select {
-            border: 1px solid #ddd7ca;
-            padding: 0.7rem 1.2rem;
-            border-radius: 40px;
-            background: var(--white-soft);
-            font-family: inherit;
-            color: var(--text-dark);
-            width: 100%;
-            outline: none;
-            font-size: 0.9rem;
-        }
-        .booking-field input:focus, .booking-field select:focus {
-            border-color: var(--ochre);
-        }
-
-        /* --- STANDARD SECTIONS & CARDS --- */
-        .section { padding: 5.5rem 0; }
-        .bg-jungle { background: var(--jungle); color: white; }
-        .bg-stone { background: var(--stone); }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        .section-title {
-            font-size: clamp(1.8rem, 5vw, 2.8rem);
-            margin: 0.5rem 0 1rem;
-            color: var(--jungle-dark);
-            line-height: 1.2;
-        }
-        .bg-jungle .section-title { color: white; }
-        .section-desc {
-            max-width: 680px;
-            margin: 0 auto;
-            color: var(--text-mid);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-        .bg-jungle .section-desc { color: #cfd9cf; }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-        .grid-3 {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        }
-        .grid-4 {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        }
-
-        .card {
-            background: white;
-            border-radius: var(--radius-card);
-            overflow: hidden;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            box-shadow: var(--shadow-sm);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .card:hover { 
-            transform: translateY(-6px); 
-            box-shadow: var(--shadow-md); 
-        }
-        .card-img-placeholder {
-            position: relative;
-            height: 240px;
-            overflow: hidden;
-        }
-        .card-img-placeholder .fallback-bg {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--jungle-mid), var(--canopy));
-        }
-        .card-img-placeholder .fallback-bg i {
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.15);
-        }
-        .card-body { 
-            padding: 1.75rem; 
-            flex: 1; 
-            display: flex;
-            flex-direction: column;
-        }
-        .card-tag {
-            font-size: 0.7rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ochre);
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-        }
-        .card-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-            color: var(--jungle-dark);
-        }
-        .card-desc {
-            font-size: 0.9rem;
-            color: var(--text-mid);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        .amenity-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-top: auto;
-        }
-        .amenity-badge {
-            background: var(--mist);
-            padding: 0.3rem 0.75rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--jungle-mid);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .card-footer {
-            padding: 1.25rem 1.75rem 1.75rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #ede6da;
-            background: #faf8f4;
-        }
-        .price-tag {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--ochre);
-            font-family: 'Playfair Display', serif;
-        }
-        .price-tag span { font-size: 0.8rem; font-weight: normal; color: var(--text-light); font-family: 'Inter', sans-serif; }
-
-        .badge {
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- FOOTER DESIGN --- */
-        .footer {
-            background: var(--jungle-dark);
-            color: #b6bfb2;
-            padding: 5rem 0 2rem;
-            border-top: 1px solid rgba(255,255,240,0.05);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-        .footer-brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .footer-brand-desc {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 1.5rem;
-            max-width: 480px;
-        }
-        .footer-socials {
-            display: flex;
-            gap: 0.75rem;
-        }
-        .social-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e7dfcf;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .social-btn:hover {
-            background: var(--ochre);
-            color: #1F2A24;
-            transform: translateY(-2px);
-        }
-        .footer-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            color: white;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-        }
-        .footer-links {
-            list-style: none;
-        }
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover {
-            color: var(--ochre-light);
-        }
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        /* --- LAYOUT ADAPTABILITY INTERFACES --- */
-        @media (max-width: 991px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(15, 36, 25, 0.98);
-                flex-direction: column;
-                padding: 2.5rem 1.5rem;
-                gap: 1.5rem;
-                border-bottom: 1px solid rgba(255,255,240,0.1);
-                text-align: center;
-                box-shadow: var(--shadow-md);
-            }
-            .nav-links.open { display: flex; }
-            .hamburger { display: flex; }
-            .grid-2 { grid-template-columns: 1fr; gap: 3rem; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .footer-grid > div:first-child { grid-column: span 2; }
-            .booking-bar { border-radius: 2rem; padding: 2rem; }
-            .booking-bar-inner { flex-direction: column; align-items: stretch; }
-            .booking-bar-inner .btn { width: 100%; justify-content: center; }
-        }
-
-        @media (max-width: 640px) {
-            .section { padding: 3.5rem 0; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-grid > div:first-child { grid-column: span 1; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .hero-stats { justify-content: space-between; gap: 1.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="site-header" id="mainNav">
-    <div class="nav-container">
-        <a href="#" class="navbar-brand-wrapper">
-            <div class="navbar-logo-icon"><i class="fas fa-mountain"></i></div>
+<!-- STATIC GLOBAL HEADER (Substituted from include) -->
+<nav class="navbar scrolled">
+    <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <div class="navbar-logo"><i class="fas fa-mountain"></i></div>
             <div>
-                <div class="logo-text">Wild<span>Nest</span></div>
-                <div class="logo-tagline">Resort & Retreat</div>
+                <div class="navbar-name">WildNest</div>
+                <div class="navbar-tagline">Highland Basecamp</div>
             </div>
         </a>
-
-        <ul class="nav-links" id="navMenu">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#rooms">Rooms</a></li>
-            <li><a href="#amenities">Amenities</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <div class="nav-actions">
-            <a href="#" class="btn-nav-action btn-nav-outline">Sign In</a>
-            <a href="#" class="btn-nav-action btn-nav-primary">Book Now</a>
-            
-            <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
-                <span></span><span></span><span></span>
-            </button>
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="amenities.html" class="nav-link">Amenities</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="contact.html" class="btn btn-primary btn-sm">Book Now</a>
         </div>
     </div>
-</header>
+</nav>
 
+<!-- HERO -->
 <section class="hero">
     <div class="hero-bg">
         <div class="hero-overlay"></div>
-        <svg style="position:absolute;bottom:0;left:0;right:0;opacity:.12" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- SVG Forest Illustration -->
+        <svg style="position:absolute;bottom:0;left:0;right:0;opacity:.15" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path fill="#3D7A5C" d="M0,224L60,208C120,192,240,160,360,165.3C480,171,600,213,720,234.7C840,256,960,256,1080,234.7C1200,213,1320,171,1380,149.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
             <path fill="#2C5F44" d="M0,288L80,277.3C160,267,320,245,480,240C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
         </svg>
@@ -690,346 +55,287 @@
             Suspended above highland forest floors and perched over rushing mountain rivers — WildNest is the basecamp for your most unforgettable escape.
         </p>
         <div class="hero-actions">
-            <a href="#rooms" class="btn btn-primary btn-lg"><i class="fas fa-bed"></i> Explore Rooms</a>
-            <a href="#about" class="btn btn-secondary btn-lg">Our Story</a>
+            <a href="contact.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-bed"></i> Explore Rooms
+            </a>
+            <a href="about.html" class="btn btn-secondary btn-lg">
+                Our Story
+            </a>
         </div>
         <div class="hero-stats">
-            <div><div class="hero-stat-number">9</div><div class="hero-stat-label">Unique Stays</div></div>
-            <div><div class="hero-stat-number">10+</div><div class="hero-stat-label">Adventures</div></div>
-            <div><div class="hero-stat-number">4.9★</div><div class="hero-stat-label">Guest Rating</div></div>
-            <div><div class="hero-stat-number">1,200m</div><div class="hero-stat-label">Above Sea Level</div></div>
+            <div>
+                <div class="hero-stat-number">9</div>
+                <div class="hero-stat-label">Unique Stays</div>
+            </div>
+            <div>
+                <div class="hero-stat-number">10+</div>
+                <div class="hero-stat-label">Adventures</div>
+            </div>
+            <div>
+                <div class="hero-stat-number">4.9★</div>
+                <div class="hero-stat-label">Guest Rating</div>
+            </div>
+            <div>
+                <div class="hero-stat-number">1,200m</div>
+                <div class="hero-stat-label">Above Sea Level</div>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- ADVENTURE STRIP (Replaced php loop with hardcoded ticker duplication) -->
 <div class="adventure-strip">
-    <div class="strip-track" id="stripTrack"></div>
+    <div class="strip-track">
+        <div class="strip-item"><i class="fas fa-compass"></i> Jungle Canopy Villas <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> River Cottages <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> Summit Suites <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> Guided Treks <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> Forest Spa <div class="strip-dot"></div></div>
+        <!-- Duplicated for flawless marquee infinite track loops -->
+        <div class="strip-item"><i class="fas fa-compass"></i> Jungle Canopy Villas <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> River Cottages <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> Summit Suites <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> Guided Treks <div class="strip-dot"></div></div>
+        <div class="strip-item"><i class="fas fa-compass"></i> Forest Spa <div class="strip-dot"></div></div>
+    </div>
 </div>
 
-<div class="booking-bar-wrapper">
+<!-- BOOKING BAR (Modified to safely point forward statically) -->
+<div style="background:var(--mist);padding:3rem 0">
     <div class="container">
         <div class="booking-bar">
-            <form id="bookingForm" onsubmit="alert('✨ Demo Mode: Your availability search inquiry was captured successfully!'); return false;">
+            <form method="GET" action="contact.html">
                 <div class="booking-bar-inner">
                     <div class="booking-field">
                         <label><i class="fas fa-calendar-check"></i> Check In</label>
-                        <input type="date" id="checkIn" required>
+                        <input type="date" name="check_in">
                     </div>
                     <div class="booking-field">
                         <label><i class="fas fa-calendar-times"></i> Check Out</label>
-                        <input type="date" id="checkOut" required>
+                        <input type="date" name="check_out">
                     </div>
                     <div class="booking-field">
                         <label><i class="fas fa-users"></i> Guests</label>
-                        <select>
-                            <option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option>
+                        <select name="guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
                         </select>
                     </div>
                     <div class="booking-field">
-                        <label><i class="fas fa-door-open"></i> Room Category</label>
-                        <select>
-                            <option>Any Accommodations</option>
-                            <option>Jungle Canopy Villa</option>
-                            <option>Riverside Cottage</option>
-                            <option>Summit Suite</option>
+                        <label><i class="fas fa-door-open"></i> Room Type</label>
+                        <select name="category">
+                            <option value="">Any Type</option>
+                            <option value="1">Jungle Canopy Villa</option>
+                            <option value="2">Riverside Cottage</option>
+                            <option value="3">Summit Suite</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-search"></i> Search</button>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-search"></i> Search
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<section class="section" id="about">
-    <div class="container">
-        <div class="grid-2">
-            <div>
-                <div class="eyebrow">Est. 2018</div>
-                <h2 class="section-title">We Started With a Treehouse and a Dream</h2>
-                <p style="color: var(--text-mid); line-height: 1.8; margin-bottom: 1.25rem;">
-                    WildNest began as a single hand-built treehouse on a family plot of highland forest in Benguet. The founder, Mang Ricardo — a former forest ranger — wanted one simple target: a place where visitors could sleep inside the forest, not outside it.
-                </p>
-                <p style="color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem;">
-                    We didn't build a structured resort and plant landscaping around it. We carefully engineered around living structures, matching the pristine flow of the local geography.
-                </p>
-                <a href="#contact" class="btn btn-dark">Get In Touch</a>
-            </div>
-            <div style="background: linear-gradient(135deg, var(--jungle), var(--canopy)); height: 380px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-campground" style="font-size: 5rem; color: rgba(255,255,255,0.2)"></i>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section bg-stone" id="rooms">
+<!-- FEATURED ROOMS (Substituted mock database contents) -->
+<section class="section">
     <div class="container">
         <div class="section-header">
             <div class="eyebrow">Our Accommodations</div>
             <h2 class="section-title">Find Your Perfect Nest</h2>
-            <p class="section-desc">From treetop structures draped in living ferns to riverside cottages with your feet over the water — each room at WildNest is an experience unlike any other.</p>
+            <p class="section-desc">From treetop villas draped in living ferns to riverside cottages with your feet over the water — each stay at WildNest is a room unlike any other.</p>
         </div>
-        <div class="grid-3" id="featuredRooms"></div>
+
+        <div class="grid-3">
+            <!-- Room Card 1 -->
+            <div class="card">
+                <div class="card-img-placeholder">
+                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--jungle-dark),var(--jungle-mid))">
+                        <i class="fas fa-tree" style="font-size:4rem;color:rgba(255,255,255,.2)"></i>
+                    </div>
+                    <div style="position:absolute;top:1rem;left:1rem">
+                        <span class="badge badge-success" style="background:rgba(0,0,0,.5);color:white;backdrop-filter:blur(4px)">Canopy View</span>
+                    </div>
+                    <div style="position:absolute;top:1rem;right:1rem">
+                        <span class="badge" style="background:var(--ochre);color:white"><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-tag">Villas</div>
+                    <h3 class="card-title">Jungle Canopy Villa</h3>
+                    <p class="card-desc">An elevated structural experience perched cleanly inside ancient forest foliage tree trunks...</p>
+                    <div class="amenity-list">
+                        <span class="amenity-badge"><i class="fas fa-users"></i> Up to 2</span>
+                        <span class="amenity-badge"><i class="fas fa-expand-arrows-alt"></i> 45 m²</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="price-tag">₱5,500 <span>/ night</span></div>
+                    <a href="contact.html" class="btn btn-dark btn-sm">Inquire Now</a>
+                </div>
+            </div>
+
+            <!-- Room Card 2 -->
+            <div class="card">
+                <div class="card-img-placeholder">
+                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--jungle-dark),var(--jungle-mid))">
+                        <i class="fas fa-water" style="font-size:4rem;color:rgba(255,255,255,.2)"></i>
+                    </div>
+                    <div style="position:absolute;top:1rem;left:1rem">
+                        <span class="badge badge-success" style="background:rgba(0,0,0,.5);color:white;backdrop-filter:blur(4px)">Riverfront</span>
+                    </div>
+                    <div style="position:absolute;top:1rem;right:1rem">
+                        <span class="badge" style="background:var(--ochre);color:white"><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-tag">Cottages</div>
+                    <h3 class="card-title">Riverside Cottage</h3>
+                    <p class="card-desc">Listen to the rushing mountain streams right from your sweeping private overhanging balcony terrace...</p>
+                    <div class="amenity-list">
+                        <span class="amenity-badge"><i class="fas fa-users"></i> Up to 4</span>
+                        <span class="amenity-badge"><i class="fas fa-expand-arrows-alt"></i> 60 m²</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="price-tag">₱6,200 <span>/ night</span></div>
+                    <a href="contact.html" class="btn btn-dark btn-sm">Inquire Now</a>
+                </div>
+            </div>
+
+            <!-- Room Card 3 -->
+            <div class="card">
+                <div class="card-img-placeholder">
+                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--jungle-dark),var(--jungle-mid))">
+                        <i class="fas fa-mountain" style="font-size:4rem;color:rgba(255,255,255,.2)"></i>
+                    </div>
+                    <div style="position:absolute;top:1rem;left:1rem">
+                        <span class="badge badge-success" style="background:rgba(0,0,0,.5);color:white;backdrop-filter:blur(4px)">360 Summit</span>
+                    </div>
+                    <div style="position:absolute;top:1rem;right:1rem">
+                        <span class="badge" style="background:var(--ochre);color:white"><i class="fas fa-star"></i> 5.0</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-tag">Suites</div>
+                    <h3 class="card-title">Summit Suite</h3>
+                    <p class="card-desc">The crown jewel offering panoramic views of the sea of clouds passing over the ridges...</p>
+                    <div class="amenity-list">
+                        <span class="amenity-badge"><i class="fas fa-users"></i> Up to 2</span>
+                        <span class="amenity-badge"><i class="fas fa-expand-arrows-alt"></i> 80 m²</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="price-tag">₱8,500 <span>/ night</span></div>
+                    <a href="contact.html" class="btn btn-dark btn-sm">Inquire Now</a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- WHY WILDNEST -->
 <section class="section bg-jungle">
     <div class="container">
-        <div class="section-header">
-            <div class="eyebrow">The WildNest Difference</div>
-            <h2 class="section-title">Built for the Wild at Heart</h2>
-            <p class="section-desc">We combine raw exploration characteristics with sustainable luxury choices that benefit the local environment and surrounding community directly.</p>
+        <div class="section-header center">
+            <div class="eyebrow" style="color:var(--ochre)">The WildNest Difference</div>
+            <h2 class="section-title" style="color:white">Built for the Wild at Heart</h2>
+            <p class="section-desc">We didn't build a resort and put trees around it. We built around the trees, the river, and the ridge — and then made it comfortable.</p>
         </div>
         <div class="grid-4">
-            <div style="text-align:center; padding:1rem;">
-                <div style="width:64px;height:64px;border-radius:50%;background:rgba(232,168,78,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-tree"></i></div>
-                <h4 style="color:white; font-size:1.2rem; margin-bottom:0.5rem">Canopy Architecture</h4>
-                <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.6">Every structure is mapped out thoughtfully around living trees, protecting structural root systems completely.</p>
+            <div style="text-align:center;padding:2rem 1rem">
+                <div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Canopy Architecture</h4>
+                <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Every structure is engineered around living trees, not despite them.</p>
             </div>
-            <div style="text-align:center; padding:1rem;">
-                <div style="width:64px;height:64px;border-radius:50%;background:rgba(232,168,78,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-leaf"></i></div>
-                <h4 style="color:white; font-size:1.2rem; margin-bottom:0.5rem">Zero-Waste Kitchen</h4>
-                <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.6">Foraged ingredients, zero single-use plastics, and community organic recycling systems.</p>
+            <div style="text-align:center;padding:2rem 1rem">
+                <div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Zero-Waste Kitchen</h4>
+                <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Foraged ingredients, no single-use plastics, composted waste.</p>
             </div>
-            <div style="text-align:center; padding:1rem;">
-                <div style="width:64px;height:64px;border-radius:50%;background:rgba(232,168,78,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-shield-alt"></i></div>
-                <h4 style="color:white; font-size:1.2rem; margin-bottom:0.5rem">Safety-First Adventures</h4>
-                <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.6">Certified professional rescue guides, full gear checks, and custom risk-calibrated expedition maps.</p>
+            <div style="text-align:center;padding:2rem 1rem">
+                <div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Safety-First</h4>
+                <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Certified guides, full safety gear, and risk-calibrated packages.</p>
             </div>
-            <div style="text-align:center; padding:1rem;">
-                <div style="width:64px;height:64px;border-radius:50%;background:rgba(232,168,78,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-map-marked-alt"></i></div>
-                <h4 style="color:white; font-size:1.2rem; margin-bottom:0.5rem">Deep Local Roots</h4>
-                <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.6">Proudly managed, staffed, and developed in tandem with indigenous communities across Benguet.</p>
+            <div style="text-align:center;padding:2rem 1rem">
+                <div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Deep Local Roots</h4>
+                <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Owned and staffed by the Benguet community we call home.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section" id="amenities">
+<!-- TESTIMONIALS -->
+<section class="section">
     <div class="container">
-        <div class="section-header">
-            <div class="eyebrow">Resort Features</div>
-            <h2 class="section-title">What's Included In Your Escape</h2>
-            <p class="section-desc">We deliver high-end operational comforts engineered perfectly into rugged high-altitude terrains.</p>
+        <div class="section-header center">
+            <div class="eyebrow">Guest Stories</div>
+            <h2 class="section-title">What the Wild Ones Say</h2>
         </div>
         <div class="grid-3">
-            <div style="background:var(--white-soft); padding:2rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);">
-                <h3 style="font-size:1.3rem; color:var(--jungle-dark); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;"><i class="fas fa-couch" style="color:var(--ochre)"></i> Room Comforts</h3>
-                <p style="font-size:0.9rem; color:var(--text-mid); line-height:1.6">Premium down comforters, heated under-blankets for cool highland nights, raw cedar woodwork, and private panoramic viewing decks.</p>
-            </div>
-            <div style="background:var(--white-soft); padding:2rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);">
-                <h3 style="font-size:1.3rem; color:var(--jungle-dark); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;"><i class="fas fa-utensils" style="color:var(--ochre)"></i> Dining & Lounge</h3>
-                <p style="font-size:0.9rem; color:var(--text-mid); line-height:1.6">Access to the Ridge-line Dining Hall, craft fireside lounge zones, premium local bar access, and custom breakfast baskets delivered directly to your door.</p>
-            </div>
-            <div style="background:var(--white-soft); padding:2rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);">
-                <h3 style="font-size:1.3rem; color:var(--jungle-dark); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;"><i class="fas fa-mountain" style="color:var(--ochre)"></i> Wilderness Perks</h3>
-                <p style="font-size:0.9rem; color:var(--text-mid); line-height:1.6">Stargazing equipment, secured walking trail networks, river gears, and wood-fired thermal wellness dipping pools hidden in the ferns.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section bg-stone" id="services">
-    <div class="container">
-        <div class="section-header">
-            <div class="eyebrow">Adventure & Wellness</div>
-            <h2 class="section-title">Curated Mountain Services</h2>
-            <p class="section-desc">Our menu of optional field activities and local food pairings are designed explicitly to enrich your journey.</p>
-        </div>
-        <div class="grid-4" id="servicesGrid"></div>
-    </div>
-</section>
-
-<section class="section" id="contact">
-    <div class="container">
-        <div class="grid-2">
-            <div>
-                <div class="eyebrow">Get In Touch</div>
-                <h2 class="section-title">Plan Your Expedition</h2>
-                <p style="color:var(--text-mid); margin-bottom:2rem; line-height:1.7;">Have questions about reservations, group booking discounts, or physical requirements for specific trails? Fill out the inquiry footprint and our team will reply within 24 hours.</p>
-                
-                <div style="display:flex; flex-direction:column; gap:1rem;">
-                    <div style="display:flex; align-items:center; gap:1rem; font-size:0.95rem;">
-                        <i class="fas fa-phone" style="color:var(--ochre)"></i> <span>+63 912 345 6789</span>
-                    </div>
-                    <div style="display:flex; align-items:center; gap:1rem; font-size:0.95rem;">
-                        <i class="fas fa-envelope" style="color:var(--ochre)"></i> <span>hello@wildnest.com</span>
-                    </div>
-                    <div style="display:flex; align-items:center; gap:1rem; font-size:0.95rem;">
-                        <i class="fas fa-map-marker-alt" style="color:var(--ochre)"></i> <span>Sitio Kagubatan, Baguio City, Benguet</span>
+            <div class="card" style="padding:2rem">
+                <div style="color:var(--ochre);margin-bottom:1rem;font-size:.9rem"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--jungle-dark);line-height:1.7;margin-bottom:1.25rem">"The Pinnacle Suite absolutely blew our minds. We watched clouds move through the valley from our plunge pool."</p>
+                <div style="display:flex;align-items:center;gap:.75rem">
+                    <div style="width:40px;height:40px;background:var(--jungle-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">M</div>
+                    <div>
+                        <div style="font-weight:600;font-size:.9rem;color:var(--jungle-dark)">Maria Santos</div>
+                        <div style="font-size:.78rem;color:var(--text-light)">Cebu City</div>
                     </div>
                 </div>
             </div>
-            
-            <div style="background:white; padding:2.5rem; border-radius:var(--radius-card); box-shadow:var(--shadow-md);">
-                <form onsubmit="alert('✨ Message Transmitted Successfully! (Static Mode)'); this.reset(); return false;" style="display:flex; flex-direction:column; gap:1.25rem;">
+            <div class="card" style="padding:2rem">
+                <div style="color:var(--ochre);margin-bottom:1rem;font-size:.9rem"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--jungle-dark);line-height:1.7;margin-bottom:1.25rem">"The guided night walk was the highlight of our trip. Our guide Manong Romy knew every sound, every creature."</p>
+                <div style="display:flex;align-items:center;gap:.75rem">
+                    <div style="width:40px;height:40px;background:var(--jungle-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">J</div>
                     <div>
-                        <label style="display:block; font-size:0.8rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-mid)">Full Name</label>
-                        <input type="text" placeholder="Your Name" style="width:100%; padding:0.75rem 1rem; border-radius:8px; border:1px solid #ddd7ca; background:var(--white-soft);" required>
+                        <div style="font-weight:600;font-size:.9rem;color:var(--jungle-dark)">Jake Reyes</div>
+                        <div style="font-size:.78rem;color:var(--text-light)">Manila</div>
                     </div>
+                </div>
+            </div>
+            <div class="card" style="padding:2rem">
+                <div style="color:var(--ochre);margin-bottom:1rem;font-size:.9rem"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--jungle-dark);line-height:1.7;margin-bottom:1.25rem">"Whitewater Cottage is perfect. We ate breakfast with our feet hanging over the river. The staff was incredible."</p>
+                <div style="display:flex;align-items:center;gap:.75rem">
+                    <div style="width:40px;height:40px;background:var(--jungle-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">A</div>
                     <div>
-                        <label style="display:block; font-size:0.8rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-mid)">Email Address</label>
-                        <input type="email" placeholder="you@example.com" style="width:100%; padding:0.75rem 1rem; border-radius:8px; border:1px solid #ddd7ca; background:var(--white-soft);" required>
+                        <div style="font-weight:600;font-size:.9rem;color:var(--jungle-dark)">Ana Lim</div>
+                        <div style="font-size:.78rem;color:var(--text-light)">Singapore</div>
                     </div>
-                    <div>
-                        <label style="display:block; font-size:0.8rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-mid)">Message</label>
-                        <textarea placeholder="Tell us about your travel plans..." rows="4" style="width:100%; padding:0.75rem 1rem; border-radius:8px; border:1px solid #ddd7ca; background:var(--white-soft); font-family:inherit;" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark" style="justify-content:center; padding:0.85rem;"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section style="background:var(--ochre); padding:5.5rem 0; text-align:center;">
-    <div class="container">
-        <div class="eyebrow" style="color:rgba(255,255,255,0.75)">Ready for Your Expedition?</div>
-        <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:900; color:white; margin:0.75rem 0 1.25rem; line-height:1.1">The Forest Is Waiting</h2>
-        <p style="font-size:1.1rem; color:rgba(255,255,255,0.85); max-width:540px; margin:0 auto 2.5rem; line-height:1.7">Secure your reservation footprint today and step directly into the pristine highland wilderness.</p>
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap">
-            <a href="#rooms" class="btn btn-dark btn-lg"><i class="fas fa-bed"></i> Browse Villas</a>
-            <a href="#contact" class="btn btn-secondary btn-lg">Get in Touch</a>
+<!-- FOOTER -->
+<footer class="footer" style="background: var(--jungle-dark); color: white; padding: 3rem 2rem 1.5rem; margin-top: 5rem;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+        <div>
+            <div class="footer-brand-name">WildNest Resort</div>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Benguet Highlands, Philippines</p>
         </div>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div>
-                <div class="footer-brand-name">WildNest Resort</div>
-                <div class="footer-brand-desc">
-                    Tucked into the ancient highland forests of Benguet, WildNest is where your appetite for the wild meets comfort that doesn't compromise. Our ridgeline perch puts you above the clouds and inside the adventure.
-                </div>
-                <div class="footer-socials">
-                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div>
-                <div class="footer-heading">Navigate</div>
-                <ul class="footer-links">
-                    <li><a href="#">Home Base</a></li>
-                    <li><a href="#about">Our Story</a></li>
-                    <li><a href="#rooms">Rooms & Villas</a></li>
-                    <li><a href="#amenities">Amenities Portfolio</a></li>
-                    <li><a href="#services">Expeditions</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="footer-heading">Operation Hours</div>
-                <p style="font-size:0.85rem; line-height:1.6; color:rgba(255,255,255,0.5);">
-                    Front Desk Open: 24/7<br>
-                    Check-in Footprint: 2:00 PM<br>
-                    Check-out Terminal: 12:00 PM
-                </p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div>© 2026 WildNest Retreat — Benguet Highlands. Rooted in nature.</div>
-            <div style="display:flex; gap:1.5rem;">
-                <a href="#" style="color:inherit; text-decoration:none;">Privacy Map</a>
-                <a href="#" style="color:inherit; text-decoration:none;">Terms of Forest</a>
-            </div>
+        <div class="footer-links">
+            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.4);">&copy; 2026 WildNest Resort. Hosted statically on GitHub Pages.</p>
         </div>
     </div>
 </footer>
 
-<script>
-    (function() {
-        // --- CALIBRATE CALENDAR DEFAULTS IN DEMO FILTER BAR ---
-        const today = new Date();
-        const tomorrow = new Date(today);
-        tomorrow.setDate(today.getDate() + 1);
-        const checkoutDefault = new Date(today);
-        checkoutDefault.setDate(today.getDate() + 3);
-        
-        const checkInInput = document.getElementById('checkIn');
-        const checkOutInput = document.getElementById('checkOut');
-        
-        if(checkInInput) {
-            checkInInput.min = today.toISOString().split('T')[0];
-            checkInInput.value = tomorrow.toISOString().split('T')[0];
-        }
-        if(checkOutInput) {
-            checkOutInput.min = tomorrow.toISOString().split('T')[0];
-            checkOutInput.value = checkoutDefault.toISOString().split('T')[0];
-        }
-
-        // --- POPULATE MOVING MARQUEE STRIP ---
-        const loopItems = ['Jungle Canopy Villas', 'River Cottages', 'Summit Suites', 'Guided Treks', 'Zip Lines', 'Forest Spa', 'Kayaking', 'Stargazing', 'Bonfire Nights'];
-        const track = document.getElementById('stripTrack');
-        if(track) {
-            let tickerMarkup = '';
-            // Multiply items to construct seamless continuous CSS loop sequence
-            [...loopItems, ...loopItems, ...loopItems].forEach(item => {
-                tickerMarkup += `<div class="strip-item"><i class="fas fa-compass"></i> ${item} <div class="strip-dot"></div></div>`;
-            });
-            track.innerHTML = tickerMarkup;
-        }
-
-        // --- POPULATE COMPREHENSIVE STATIC ROOMS DATA ---
-        const staticRooms = [
-            { name: "Canopy Fern Villa", category: "Jungle Canopy Villa", desc: "Suspended among ancient oaks, this villa offers a private plunge pool and misty valley views.", occupancy: 2, size: 65, price: 12500, view: "Rainforest Canopy", icon: "tree" },
-            { name: "Whitewater Cottage", category: "Riverside Cottage", desc: "Overlooking the rushing Benguet river, drift to sleep with the soothing melody of rapids.", occupancy: 4, size: 80, price: 15800, view: "Riverfront", icon: "water" },
-            { name: "Summit Panorama Suite", category: "Summit Suite", desc: "Floor-to-ceiling windows frame the 1,200m highland ridge. Includes outdoor volcanic stone tub.", occupancy: 2, size: 92, price: 21900, view: "Mountain Vista", icon: "mountain" }
-        ];
-
-        const roomsContainer = document.getElementById('featuredRooms');
-        if(roomsContainer) {
-            roomsContainer.innerHTML = staticRooms.map(room => `
-                <div class="card">
-                    <div class="card-img-placeholder">
-                        <div class="fallback-bg"><i class="fas fa-${room.icon}"></i></div>
-                        <div style="position:absolute; top:1rem; left:1rem;"><span class="badge" style="color:white;">${room.view}</span></div>
-                        <div style="position:absolute; top:1rem; right:1rem;"><span class="badge" style="background:var(--ochre); color:white;"><i class="fas fa-star"></i> 4.9</span></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tag">${room.category}</div>
-                        <h3 class="card-title">${room.name}</h3>
-                        <p class="card-desc">${room.desc}</p>
-                        <div class="amenity-list">
-                            <span class="amenity-badge"><i class="fas fa-users"></i> Max ${room.occupancy}</span>
-                            <span class="amenity-badge"><i class="fas fa-expand-arrows-alt"></i> ${room.size} m²</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="price-tag">₱${room.price.toLocaleString('en-PH')} <span>/ night</span></div>
-                        <a href="#contact" class="btn btn-dark btn-sm" style="padding:0.4rem 1rem; font-size:0.85rem;">Reserve</a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // --- POPULATE COMPREHENSIVE STATIC SERVICES DATA ---
-        const staticServices = [
-            { name: "Midnight Canopy Walk", cat: "Night Trek", desc: "Walk among bio-glowing mushrooms and spot rare local tarsiers.", price: 1850, icon: "fa-moon" },
-            { name: "Highland River Kayak", cat: "Water Adventure", desc: "Paddle through beautiful gorges with class II whitewater flows.", price: 2450, icon: "fa-water" },
-            { name: "Forest Bathing Ritual", cat: "Wellness", desc: "Guided deep sound meditation accompanied by traditional gong grotto pairings.", price: 1650, icon: "fa-spa" },
-            { name: "Summit Breakfast Safari", cat: "Gastronomy", desc: "4x4 mountain ridge truck ascent featuring indigenous organic rice feasts at sunrise.", price: 2200, icon: "fa-mountain-sun" }
-        ];
-
-        const servicesGrid = document.getElementById('servicesGrid');
-        if(servicesGrid) {
-            servicesGrid.innerHTML = staticServices.map(s => `
-                <div class="card" style="text-align:center; padding:2rem; border-radius:var(--radius-lg);">
-                    <div style="width:64px; height:64px; background:var(--mist); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-size:1.5rem; color:var(--canopy)"><i class="fas ${s.icon}"></i></div>
-                    <div class="card-tag">${s.cat}</div>
-                    <h4 style="font-size:1.15rem; color:var(--jungle-dark); margin:0.4rem 0 0.6rem">${s.name}</h4>
-                    <p style="font-size:0.85rem; color:var(--text-mid); line-height:1.6; margin-bottom:1.25rem">${s.desc}</p>
-                    <div style="font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:var(--ochre)">₱${s.price.toLocaleString('en-PH')}</div>
-                </div>
-            `).join('');
-        }
-    })();
-
-    // --- RESPONSIVE HAMBURGER ACTION ---
-    function toggleMenu() {
-        document.getElementById('navMenu').classList.toggle('open');
-    }
-</script>
 </body>
 </html>
