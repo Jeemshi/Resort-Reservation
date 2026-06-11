@@ -24,14 +24,20 @@ if (!isset($active_page)) $active_page = '';
             </div>
         </a>
 
-        <ul class="navbar-nav" id="navMenu">
-            <li><a href="<?= SITE_URL ?>/index.php" class="nav-link <?= $active_page==='home'?'active':'' ?>">Home</a></li>
-            <li><a href="<?= SITE_URL ?>/guest/about.php" class="nav-link <?= $active_page==='about'?'active':'' ?>">About</a></li>
-            <li><a href="<?= SITE_URL ?>/guest/rooms.php" class="nav-link <?= $active_page==='rooms'?'active':'' ?>">Rooms</a></li>
-            <li><a href="<?= SITE_URL ?>/guest/amenities.php" class="nav-link <?= $active_page==='amenities'?'active':'' ?>">Amenities</a></li>
-            <li><a href="<?= SITE_URL ?>/guest/services.php" class="nav-link <?= $active_page==='services'?'active':'' ?>">Services</a></li>
-            <li><a href="<?= SITE_URL ?>/guest/contact.php" class="nav-link <?= $active_page==='contact'?'active':'' ?>">Contact</a></li>
-        </ul>
+       <ul class="nav-links" style="list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;">
+    <li><a href="<?= SITE_URL ?>/index.php" style="color: white; text-decoration: none;">Home</a></li>
+    
+    <li><a href="<?= SITE_URL ?>/guest/about.php" style="color: white; text-decoration: none;">About</a></li>
+    <li><a href="<?= SITE_URL ?>/guest/rooms.php" style="color: white; text-decoration: none;">Rooms</a></li>
+    <li><a href="<?= SITE_URL ?>/guest/amenities.php" style="color: white; text-decoration: none;">Amenities</a></li>
+    <li><a href="<?= SITE_URL ?>/guest/services.php" style="color: white; text-decoration: none;">Services</a></li>
+    <li><a href="<?= SITE_URL ?>/guest/contact.php" style="color: white; text-decoration: none;">Contact</a></li>
+</ul>
+
+<div class="nav-actions">
+    <a href="<?= SITE_URL ?>/guest/login.php" class="btn btn-outline" style="margin-right: 0.5rem;">Sign In</a>
+    <a href="<?= SITE_URL ?>/admin/login.php" class="btn btn-primary">Admin HQ</a>
+</div>
 
         <div class="navbar-actions">
             <?php if (isGuestLoggedIn()): ?>
