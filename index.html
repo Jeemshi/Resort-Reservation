@@ -1,0 +1,657 @@
+Here is an HTML document that transforms the provided PHP code into a standalone webpage for GitHub Pages.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WildNest | Highlander Forest Retreats</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Modern serif & sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --jungle-deep: #1A3A2C;
+            --jungle-dark: #1F4A38;
+            --jungle-mid: #2C5F44;
+            --canopy: #3D7A5C;
+            --ochre: #C5873A;
+            --ochre-light: #D9A05B;
+            --mist: #F2F0E6;
+            --stone: #E8E2D4;
+            --text-dark: #1F2A24;
+            --text-mid: #4A5B4E;
+            --text-light: #7C8B7E;
+            --white-soft: #FEFCF5;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+            --radius-card: 1.75rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white-soft);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, .display-title, .card-title, .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Navigation (GitHub ready) */
+        .site-header {
+            background: rgba(31, 42, 36, 0.92);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(255,255,240,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--ochre-light); }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #f0ede8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--ochre-light); }
+        .btn-nav {
+            background: var(--ochre);
+            padding: 0.5rem 1.3rem;
+            border-radius: 40px;
+            color: #1F2A24 !important;
+            font-weight: 600;
+        }
+        @media (max-width: 800px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a:not(.btn-nav) { display: none; }
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background: linear-gradient(115deg, #10261e 0%, #1C3F30 100%);
+            overflow: hidden;
+            padding: 4rem 0 5rem;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-overlay {
+            background: radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.2) 0%, rgba(10,20,16,0.7) 100%);
+            position: absolute;
+            inset: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .hero-kicker {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero-kicker-line {
+            width: 48px;
+            height: 2px;
+            background: var(--ochre-light);
+        }
+        .eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            color: var(--ochre-light);
+        }
+        .hero-title {
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero-title span {
+            color: var(--ochre-light);
+            border-bottom: 2px solid rgba(197,135,58,0.4);
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,235,0.85);
+            max-width: 560px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--ochre);
+            color: #1F2A24;
+        }
+        .btn-primary:hover {
+            background: #b5762e;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: rgba(255,255,245,0.12);
+            backdrop-filter: blur(4px);
+            color: white;
+            border: 1px solid rgba(255,215,150,0.5);
+        }
+        .btn-dark {
+            background: var(--jungle-deep);
+            color: white;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--canopy);
+            color: var(--canopy);
+        }
+        .btn-lg { padding: 0.9rem 2rem; font-size: 1rem; }
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .hero-stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            color: white;
+        }
+        .hero-stat-label { font-size: 0.75rem; color: #cbcfc3; letter-spacing: 0.5px; }
+
+        /* adventure strip */
+        .adventure-strip {
+            background: var(--jungle-dark);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 1rem 0;
+            border-block: 1px solid rgba(255,215,150,0.2);
+        }
+        .strip-track {
+            display: inline-flex;
+            animation: scrollStrip 24s linear infinite;
+            gap: 2rem;
+        }
+        .strip-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #e7dfcf;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        .strip-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--ochre);
+            border-radius: 50%;
+            margin-left: 0.5rem;
+        }
+        @keyframes scrollStrip {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* booking bar */
+        .booking-bar {
+            background: white;
+            border-radius: 80px;
+            box-shadow: var(--shadow-md);
+            padding: 1.2rem 2rem;
+        }
+        .booking-bar-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        .booking-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-mid);
+        }
+        .booking-field input, .booking-field select {
+            border: 1px solid #ddd7ca;
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
+            background: var(--mist);
+            font-family: inherit;
+        }
+        @media (max-width: 800px) {
+            .booking-bar { border-radius: 2rem; }
+            .booking-bar-inner { flex-direction: column; align-items: stretch; }
+        }
+
+        /* sections */
+        .section {
+            padding: 5rem 0;
+        }
+        .bg-jungle {
+            background: var(--jungle-deep);
+        }
+        .bg-stone {
+            background: var(--stone);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header.center { text-align: center; }
+        .section-title {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin: 0.5rem 0 1rem;
+            color: var(--jungle-dark);
+        }
+        .bg-jungle .section-title { color: white; }
+        .section-desc {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--text-mid);
+        }
+
+        /* grid */
+        .grid-3, .grid-4 {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+        .grid-4 { gap: 1.8rem; }
+        .card {
+            background: white;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .card-img-placeholder {
+            position: relative;
+            background: #cbd5cf;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .card-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-body { padding: 1.5rem 1.5rem 1rem; flex:1; }
+        .card-tag {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ochre);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .card-title {
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-mid);
+            margin-bottom: 1rem;
+        }
+        .amenity-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 0.75rem 0;
+        }
+        .amenity-badge {
+            background: var(--mist);
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        .card-footer {
+            padding: 1rem 1.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #ede6da;
+        }
+        .price-tag {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--ochre);
+        }
+        .price-tag span { font-size: 0.8rem; font-weight: normal; color: #7f8c7a; }
+
+        .badge {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            padding: 0.25rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* responsiveness */
+        @media (max-width: 640px) {
+            .container { padding: 0 1rem; }
+            .section { padding: 3rem 0; }
+        }
+        footer {
+            background: #121c17;
+            color: #b6bfb2;
+            padding: 2.5rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="nav-container">
+        <div class="logo">Wild<span>Nest</span></div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Rooms</a>
+            <a href="#">Experiences</a>
+            <a href="#">Our Story</a>
+            <a href="#" class="btn-nav">Book Now</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg">
+        <div class="hero-overlay"></div>
+        <svg style="position:absolute;bottom:0;left:0;right:0;opacity:.12" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#3D7A5C" d="M0,224L60,208C120,192,240,160,360,165.3C480,171,600,213,720,234.7C840,256,960,256,1080,234.7C1200,213,1320,171,1380,149.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            <path fill="#2C5F44" d="M0,288L80,277.3C160,267,320,245,480,240C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+        </svg>
+    </div>
+    <div class="hero-content">
+        <div class="hero-kicker">
+            <div class="hero-kicker-line"></div>
+            <span class="eyebrow">Benguet Highlands, Philippines</span>
+        </div>
+        <h1 class="display-title hero-title">
+            Where the Wild<br>
+            <span>Becomes Home</span>
+        </h1>
+        <p class="hero-subtitle">
+            Suspended above highland forest floors and perched over rushing mountain rivers — WildNest is the basecamp for your most unforgettable escape.
+        </p>
+        <div class="hero-actions">
+            <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-bed"></i> Explore Rooms</a>
+            <a href="#" class="btn btn-secondary btn-lg">Our Story</a>
+        </div>
+        <div class="hero-stats">
+            <div><div class="hero-stat-number">9</div><div class="hero-stat-label">Unique Stays</div></div>
+            <div><div class="hero-stat-number">10+</div><div class="hero-stat-label">Adventures</div></div>
+            <div><div class="hero-stat-number">4.9★</div><div class="hero-stat-label">Guest Rating</div></div>
+            <div><div class="hero-stat-number">1,200m</div><div class="hero-stat-label">Above Sea Level</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ADVENTURE STRIP (dynamic) -->
+<div class="adventure-strip">
+    <div class="strip-track" id="stripTrack">
+        <!-- JS will inject duplicated items for seamless loop -->
+    </div>
+</div>
+
+<!-- BOOKING BAR (static interactive) -->
+<div style="background:var(--mist);padding:3rem 0">
+    <div class="container">
+        <div class="booking-bar">
+            <form id="bookingForm" onsubmit="return false;">
+                <div class="booking-bar-inner">
+                    <div class="booking-field"><label><i class="fas fa-calendar-check"></i> Check In</label><input type="date" name="check_in" min="" id="checkIn"></div>
+                    <div class="booking-field"><label><i class="fas fa-calendar-times"></i> Check Out</label><input type="date" name="check_out" id="checkOut"></div>
+                    <div class="booking-field"><label><i class="fas fa-users"></i> Guests</label><select name="guests"><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5 Guests</option><option>6 Guests</option><option>7 Guests</option><option>8 Guests</option></select></div>
+                    <div class="booking-field"><label><i class="fas fa-door-open"></i> Room Type</label><select><option>Any Type</option><option>Jungle Canopy Villa</option><option>Riverside Cottage</option><option>Summit Suite</option><option>Explorer Bungalow</option><option>Family Lodge</option></select></div>
+                    <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-search"></i> Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- FEATURED ROOMS (static mock data that mimics DB) -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="eyebrow">Our Accommodations</div>
+            <h2 class="section-title">Find Your Perfect Nest</h2>
+            <p class="section-desc">From treetop villas draped in living ferns to riverside cottages with your feet over the water — each stay at WildNest is a room unlike any other.</p>
+        </div>
+        <div class="grid-3" id="featuredRooms"></div>
+        <div style="text-align:center;margin-top:2.5rem"><a href="#" class="btn btn-outline btn-lg"><i class="fas fa-grid"></i> View All Rooms</a></div>
+    </div>
+</section>
+
+<!-- WHY WILDNEST -->
+<section class="section bg-jungle">
+    <div class="container">
+        <div class="section-header center">
+            <div class="eyebrow" style="color:var(--ochre)">The WildNest Difference</div>
+            <h2 class="section-title" style="color:white">Built for the Wild at Heart</h2>
+            <p class="section-desc" style="color:#cfd9cf">We didn't build a resort and put trees around it. We built around the trees, the river, and the ridge — and then made it comfortable.</p>
+        </div>
+        <div class="grid-4">
+            <div style="text-align:center;padding:2rem 1rem"><div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-tree"></i></div><h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Canopy Architecture</h4><p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Every structure is engineered around living trees, not despite them.</p></div>
+            <div style="text-align:center;padding:2rem 1rem"><div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-leaf"></i></div><h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Zero-Waste Kitchen</h4><p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Foraged ingredients, no single-use plastics, composted waste.</p></div>
+            <div style="text-align:center;padding:2rem 1rem"><div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-shield-alt"></i></div><h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Safety-First Adventures</h4><p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Certified guides, full safety gear, and risk-calibrated packages.</p></div>
+            <div style="text-align:center;padding:2rem 1rem"><div style="width:64px;height:64px;border-radius:50%;background:rgba(200,135,58,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;color:var(--ochre-light)"><i class="fas fa-map-marked-alt"></i></div><h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:.5rem">Deep Local Roots</h4><p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7">Owned and staffed by the Benguet community we call home.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES PREVIEW (static) -->
+<section class="section bg-stone">
+    <div class="container">
+        <div class="section-header center">
+            <div class="eyebrow">Adventure & Wellness</div>
+            <h2 class="section-title">Curated Experiences</h2>
+            <p class="section-desc">Our menu of adventures, wellness treatments, and dining experiences are crafted by people who live these mountains.</p>
+        </div>
+        <div class="grid-4" id="servicesGrid"></div>
+        <div style="text-align:center;margin-top:2.5rem"><a href="#" class="btn btn-dark btn-lg">All Services</a></div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+    <div class="container">
+        <div class="section-header center"><div class="eyebrow">Guest Stories</div><h2 class="section-title">What the Wild Ones Say</h2></div>
+        <div class="grid-3" id="testimonialsGrid"></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--ochre);padding:5rem 0;text-align:center">
+    <div class="container"><div class="eyebrow" style="color:rgba(255,255,255,.7)">Ready for Your Expedition?</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:white;margin:.75rem 0 1.25rem;line-height:1.1">The Forest Is Waiting</h2>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,.8);max-width:500px;margin:0 auto 2.5rem;line-height:1.7">Book your stay today and step into the highland wilderness. No two nights at WildNest are ever the same.</p>
+    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap"><a href="#" class="btn btn-dark btn-lg"><i class="fas fa-bed"></i> Browse Rooms</a><a href="#" class="btn btn-secondary btn-lg">Get in Touch</a></div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">© 2025 WildNest Retreat — Benguet Highlands. Rooted in nature.</div>
+</footer>
+
+<script>
+    (function() {
+        // --- set dynamic dates for booking bar
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+        const checkoutDefault = new Date(today);
+        checkoutDefault.setDate(today.getDate() + 3);
+        const checkInInput = document.getElementById('checkIn');
+        const checkOutInput = document.getElementById('checkOut');
+        if(checkInInput) {
+            checkInInput.min = today.toISOString().split('T')[0];
+            checkInInput.value = tomorrow.toISOString().split('T')[0];
+        }
+        if(checkOutInput) {
+            checkOutInput.min = new Date(tomorrow.getTime() + 86400000).toISOString().split('T')[0];
+            checkOutInput.value = checkoutDefault.toISOString().split('T')[0];
+        }
+
+        // Adventure strip items (loop)
+        const items = ['Jungle Canopy Villas','River Cottages','Summit Suites','Guided Treks','Zip Lines','Forest Spa','Kayaking','Stargazing','Wildlife Walks','Bonfire Nights'];
+        const track = document.getElementById('stripTrack');
+        if(track) {
+            let content = '';
+            [...items, ...items].forEach(item => {
+                content += `<div class="strip-item"><i class="fas fa-compass"></i> ${item} <div class="strip-dot"></div></div>`;
+            });
+            track.innerHTML = content;
+        }
+
+        // FEATURED ROOMS (hardcoded from original PHP logic)
+        const roomsData = [
+            { id:1, name:"Canopy Fern Villa", category_name:"Jungle Canopy Villa", description:"Suspended among ancient oaks, this villa offers a private plunge pool and misty valley views.", max_occupancy:2, size_sqm:65, floor:2, price_per_night:12500, view_type:"Rainforest Canopy", primary_image:null, icon:"tree" },
+            { id:2, name:"Whitewater Cottage", category_name:"Riverside Cottage", description:"Overlooking the rushing Benguet river, drift to sleep with the lullaby of rapids.", max_occupancy:4, size_sqm:80, floor:1, price_per_night:15800, view_type:"Riverfront", primary_image:null, icon:"water" },
+            { id:3, name:"Summit Panorama Suite", category_name:"Summit Suite", description:"Floor-to-ceiling windows frame the 1,200m highland ridge. Includes outdoor bathtub.", max_occupancy:2, size_sqm:92, floor:3, price_per_night:21900, view_type:"Mountain Vista", primary_image:null, icon:"mountain" }
+        ];
+        function formatPHP(amount) { return new Intl.NumberFormat('en-PH', { style: 'currency', currency: 'PHP', minimumFractionDigits:0 }).format(amount); }
+
+        const roomsContainer = document.getElementById('featuredRooms');
+        if(roomsContainer) {
+            roomsContainer.innerHTML = roomsData.map(room => `
+                <div class="card">
+                    <div class="card-img-placeholder">
+                        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1F4A38,#3D7A5C);"><i class="fas fa-${room.icon}" style="font-size:3.5rem;color:rgba(255,255,255,.3)"></i></div>
+                        <div style="position:absolute;top:1rem;left:1rem"><span class="badge" style="background:rgba(0,0,0,.5);color:white;backdrop-filter:blur(4px)">${room.view_type}</span></div>
+                        <div style="position:absolute;top:1rem;right:1rem"><span class="badge" style="background:var(--ochre);color:white"><i class="fas fa-star"></i> 4.9</span></div>
+                    </div>
+                    <div class="card-body"><div class="card-tag">${room.category_name}</div><h3 class="card-title">${room.name}</h3><p class="card-desc">${room.description.substring(0,110)}…</p><div class="amenity-list"><span class="amenity-badge"><i class="fas fa-users"></i> Up to ${room.max_occupancy}</span><span class="amenity-badge"><i class="fas fa-expand-arrows-alt"></i> ${room.size_sqm} m²</span><span class="amenity-badge"><i class="fas fa-layer-group"></i> Floor ${room.floor}</span></div></div>
+                    <div class="card-footer"><div><div class="price-tag">${formatPHP(room.price_per_night)} <span>/ night</span></div></div><a href="#" class="btn btn-dark btn-sm">View Room</a></div>
+                </div>
+            `).join('');
+        }
+
+        // services preview
+        const services = [
+            { name:"Midnight Canopy Walk", category:"Night Trek", description:"Walk among glowing mushrooms and spot tarsiers with local guides.", price:1850, icon:"fa-moon" },
+            { name:"Highland River Kayak", category:"Water Adventure", description:"Paddle through class II rapids with incredible gorge views.", price:2450, icon:"fa-water" },
+            { name:"Forest Bathing & Sound", category:"Wellness", description:"Guided meditation + traditional gong bath in the fern grove.", price:1650, icon:"fa-spa" },
+            { name:"Summit Breakfast Safari", category:"Gastronomy", description:"4x4 ride to the sunrise viewpoint with heirloom rice feast.", price:2200, icon:"fa-mountain-sun" }
+        ];
+        const servicesGrid = document.getElementById('servicesGrid');
+        if(servicesGrid) {
+            servicesGrid.innerHTML = services.map(s => `
+                <div class="card" style="text-align:center;padding:2rem">
+                    <div style="width:68px;height:68px;background:var(--mist);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:var(--canopy)"><i class="fas ${s.icon}"></i></div>
+                    <div class="card-tag">${s.category}</div>
+                    <h4 style="font-family:'Playfair Display';font-size:1.1rem;font-weight:700;color:var(--jungle-dark);margin:.4rem 0">${s.name}</h4>
+                    <p style="font-size:.85rem;color:var(--text-mid);line-height:1.6;margin-bottom:1rem">${s.description}</p>
+                    <div style="font-family:'Playfair Display';font-size:1.2rem;font-weight:700;color:var(--ochre)">${formatPHP(s.price)}</div>
+                </div>
+            `).join('');
+        }
+
+        // testimonials
+        const testimonials = [
+            { text:"The Pinnacle Suite absolutely blew our minds. We watched clouds move through the valley from our plunge pool. No resort has ever made us feel this remote and this pampered at the same time.", name:"Maria Santos", location:"Cebu City", rating:5 },
+            { text:"The guided night walk was the highlight of our trip. Our guide Manong Romy knew every sound, every creature. We saw a flying lemur 10 feet away. Unbelievable.", name:"Jake Reyes", location:"Manila", rating:5 },
+            { text:"Whitewater Cottage is perfect. We ate breakfast with our feet hanging over the river. The staff remembered our names by day two. WildNest feels like a family home, not a hotel.", name:"Ana Lim", location:"Singapore", rating:5 }
+        ];
+        const testimonialsGrid = document.getElementById('testimonialsGrid');
+        if(testimonialsGrid) {
+            testimonialsGrid.innerHTML = testimonials.map(t => `
+                <div class="card" style="padding:2rem">
+                    <div style="color:var(--ochre);margin-bottom:1rem;font-size:.9rem">${'<i class="fas fa-star"></i> '.repeat(t.rating)}</div>
+                    <p style="font-family:'Playfair Display';font-style:italic;font-size:1rem;color:var(--jungle-dark);line-height:1.7;margin-bottom:1.25rem">"${t.text}"</p>
+                    <div style="display:flex;align-items:center;gap:.75rem"><div style="width:40px;height:40px;background:var(--jungle-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1rem;font-weight:700">${t.name.charAt(0)}</div><div><div style="font-weight:600;font-size:.9rem;color:var(--jungle-dark)">${t.name}</div><div style="font-size:.78rem;color:var(--text-light)">${t.location}</div></div></div>
+                </div>
+            `).join('');
+        }
+
+        // small alert for booking (demo friendly)
+        const bookingForm = document.getElementById('bookingForm');
+        if(bookingForm) {
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('✨ Demo mode: your search would show real availability at WildNest. (Static preview)');
+            });
+        }
+    })();
+</script>
+</body>
+</html>
+```s
